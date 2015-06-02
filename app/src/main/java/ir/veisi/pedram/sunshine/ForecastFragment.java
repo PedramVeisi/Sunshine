@@ -37,6 +37,7 @@ import java.util.List;
 public class ForecastFragment extends Fragment {
 
     private ArrayAdapter<String> mForecastAdapter;
+    private String[] forecastData = {};
 
     public ForecastFragment() {
     }
@@ -57,11 +58,7 @@ public class ForecastFragment extends Fragment {
         // Inflate the layout
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-        String[] forecastArray = {
-                "1", "2", "3", "4"
-        };
-
-        List<String> weekForecast = new ArrayList<String>(Arrays.asList(forecastArray));
+        List<String> weekForecast = new ArrayList<String>(Arrays.asList(forecastData));
 
         mForecastAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_forecast, R.id.list_item_forecast_textview, weekForecast);
 
@@ -82,7 +79,7 @@ public class ForecastFragment extends Fragment {
         switch (item.getItemId()){
             case R.id.action_refresh:
                 FetchWeatherTask fetchWeatherTask = new FetchWeatherTask();
-                fetchWeatherTask.execute("T6G2X5");
+                fetchWeatherTask.execute("12345");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -93,6 +90,27 @@ public class ForecastFragment extends Fragment {
     public class FetchWeatherTask extends AsyncTask<String, Void, String[]>{
 
         private final String LOG_TAG = FetchWeatherTask.class.getSimpleName();
+
+        /**
+         * <p>Runs on the UI thread after {@link #doInBackground}. The
+         * specified result is the value returned by {@link #doInBackground}.</p>
+         * <p/>
+         * <p>This method won't be invoked if the task was cancelled.</p>
+         *
+         * @param strings The result of the operation computed by {@link #doInBackground}.
+         * @see #onPreExecute
+         * @see #doInBackground
+         * @see #onCancelled(Object)
+         */
+        @Override
+        protected void onPostExecute(String[] result) {
+            if(result != null){
+                mForecastAdapter.clear();
+                for (String dayForecastStr : result){
+                    mForecastAdapter.add(dayForecastStr);
+                }
+            }
+        }
 
         @Override
         protected String[] doInBackground(String... params) {
@@ -131,7 +149,6 @@ public class ForecastFragment extends Fragment {
                         .appendQueryParameter(DAYS_PARAM, Integer.toString(numDays))
                         .build();
 
-                Log.e(LOG_TAG, buildUri.toString());
                 URL url = new URL(buildUri.toString());
 
                 // Create the request to OpenWeatherMap, and open the connection
@@ -164,7 +181,7 @@ public class ForecastFragment extends Fragment {
                 try {
                     return getWeatherDataFromJson(forecastJsonStr, numDays);
                 } catch (JSONException e) {
-                    Log.e("LOG_TAG", "Error getting weather data from JSON", e);
+                    Log.e(LOG_TAG, "Error getting weather data from JSON", e);
                 }
             } catch (IOException e) {
                 Log.e(LOG_TAG, "Error ", e);
@@ -179,7 +196,7 @@ public class ForecastFragment extends Fragment {
                     try {
                         reader.close();
                     } catch (final IOException e) {
-                        Log.e("LOG_TAG", "Error closing stream", e);
+                        Log.e(LOG_TAG, "Error closing stream", e);
                     }
                 }
             }
@@ -279,14 +296,9 @@ public class ForecastFragment extends Fragment {
                 resultStrs[i] = day + " - " + description + " - " + highAndLow;
             }
 
-            for (String s : resultStrs) {
-                Log.v(LOG_TAG, "Forecast entry: " + s);
-            }
             return resultStrs;
 
         }
-
-
 
     }
 }
