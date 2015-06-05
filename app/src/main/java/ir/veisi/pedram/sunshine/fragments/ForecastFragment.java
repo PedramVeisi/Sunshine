@@ -46,7 +46,6 @@ import ir.veisi.pedram.sunshine.activities.DetailActivity;
 public class ForecastFragment extends Fragment {
 
     private ArrayAdapter<String> mForecastAdapter;
-    private String[] forecastData = {};
 
     public ForecastFragment() {
     }
@@ -67,9 +66,7 @@ public class ForecastFragment extends Fragment {
         // Inflate the layout
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-        List<String> weekForecast = new ArrayList<String>(Arrays.asList(forecastData));
-
-        mForecastAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_forecast, R.id.list_item_forecast_textview, weekForecast);
+        mForecastAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_forecast, R.id.list_item_forecast_textview, new ArrayList<String>());
 
         // Find the reference to the listview
         ListView listView = (ListView) rootView.findViewById(R.id.listview_forecast);
