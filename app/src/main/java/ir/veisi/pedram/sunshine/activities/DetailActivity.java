@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import ir.veisi.pedram.sunshine.R;
 
@@ -16,17 +15,6 @@ public class DetailActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-
-        Intent intent = getIntent();
-        String dayForecast = intent.getStringExtra(Intent.EXTRA_TEXT);
-
-        setUpViews(dayForecast);
-
-    }
-
-    private void setUpViews(String dayForecast) {
-        TextView forecastTextView = (TextView) findViewById(R.id.detail_forecast_textview);
-        forecastTextView.setText(dayForecast);
     }
 
 
@@ -46,6 +34,8 @@ public class DetailActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
             return true;
         }
 

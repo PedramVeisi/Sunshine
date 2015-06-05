@@ -1,9 +1,11 @@
 package ir.veisi.pedram.sunshine.fragments;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.text.format.Time;
 import android.util.Log;
@@ -32,6 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.prefs.PreferenceChangeEvent;
 
 import ir.veisi.pedram.sunshine.R;
 import ir.veisi.pedram.sunshine.activities.DetailActivity;
@@ -95,12 +98,26 @@ public class ForecastFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_refresh:
-                FetchWeatherTask fetchWeatherTask = new FetchWeatherTask();
-                fetchWeatherTask.execute("12345");
+                updateWeather();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void updateWeather() {
+        FetchWeatherTask fetchWeatherTask = new FetchWeatherTask();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String location = prefs.getString(getString(R.string.pref_location_key), getString(R.string.pref_location_default));
+
+        fetchWeatherTask.execute(location);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        updateWeather();
     }
 
     // AsyncTask to fetch JSON data from the server
