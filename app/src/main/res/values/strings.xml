@@ -13,4 +13,10 @@
     <string name="pref_location_key" translatable="flase">location</string>
     <string name="pref_location_default" translatable="flase">t6g2x5</string>
 
+    <string name="pref_units_label">Temperature Units</string>
+    <string name="pref_units_key" translatable="flase">temp_units</string>
+    <string name="pref_units_value_metric" translatable="flase">metric</string>
+    <string name="pref_units_value_imperial" translatable="flase">imperial</string>
+    <string name="pref_units_label_metric">Metric</string>
+    <string name="pref_units_label_imperial">Imperial</string>
 </resources>
