@@ -1,4 +1,4 @@
-package ir.veisi.pedram.sunshine.data;
+package si.vei.pedram.sunshine.data;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.test.AndroidTestCase;
 
-import ir.veisi.pedram.sunshine.utils.PollingCheck;
+import si.vei.pedram.sunshine.utils.PollingCheck;
 
 import java.util.Map;
 import java.util.Set;

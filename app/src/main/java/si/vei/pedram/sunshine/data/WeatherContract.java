@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ir.veisi.pedram.sunshine.data;
+package si.vei.pedram.sunshine.data;
 
 import android.provider.BaseColumns;
 import android.text.format.Time;

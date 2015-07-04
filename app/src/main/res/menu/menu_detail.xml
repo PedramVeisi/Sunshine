@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="ir.veisi.pedram.sunshine.activities.DetailActivity">
+    tools:context="si.vei.pedram.sunshine.activities.DetailActivity">
 
     <item
         android:id="@+id/action_settings"

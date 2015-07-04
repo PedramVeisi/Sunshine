@@ -1,4 +1,4 @@
-package ir.veisi.pedram.sunshine.activities;
+package si.vei.pedram.sunshine.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,8 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import ir.veisi.pedram.sunshine.R;
-
+import si.vei.pedram.sunshine.R;
 
 public class DetailActivity extends ActionBarActivity {
 

@@ -1,4 +1,4 @@
-package ir.veisi.pedram.sunshine.data;
+package si.vei.pedram.sunshine.data;
 
 import android.test.AndroidTestCase;
 

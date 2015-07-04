@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ir.veisi.pedram.sunshine;
+package si.vei.pedram.sunshine;
 
 import android.test.suitebuilder.TestSuiteBuilder;
 

@@ -1,4 +1,4 @@
-package ir.veisi.pedram.sunshine.activities;
+package si.vei.pedram.sunshine.activities;
 
 import android.os.Bundle;
 import android.preference.ListPreference;
@@ -6,7 +6,7 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 
-import ir.veisi.pedram.sunshine.R;
+import si.vei.pedram.sunshine.R;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings.

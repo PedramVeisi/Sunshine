@@ -1,4 +1,4 @@
-package ir.veisi.pedram.sunshine.activities;
+package si.vei.pedram.sunshine.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,8 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import ir.veisi.pedram.sunshine.R;
-
+import si.vei.pedram.sunshine.R;
 
 public class MainActivity extends ActionBarActivity {
 

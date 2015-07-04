@@ -1,4 +1,4 @@
-package ir.veisi.pedram.sunshine.fragments;
+package si.vei.pedram.sunshine.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,8 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import ir.veisi.pedram.sunshine.R;
-
+import si.vei.pedram.sunshine.R;
 
 /**
  * A placeholder fragment containing a simple view.

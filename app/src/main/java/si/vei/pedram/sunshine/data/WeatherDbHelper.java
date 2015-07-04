@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ir.veisi.pedram.sunshine.data;
+package si.vei.pedram.sunshine.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import ir.veisi.pedram.sunshine.data.WeatherContract.LocationEntry;
-import ir.veisi.pedram.sunshine.data.WeatherContract.WeatherEntry;
+import si.vei.pedram.sunshine.data.WeatherContract.LocationEntry;
+import si.vei.pedram.sunshine.data.WeatherContract.WeatherEntry;
 
 /**
  * Manages a local database for weather data.

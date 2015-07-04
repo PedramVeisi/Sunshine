@@ -1,4 +1,4 @@
-package ir.veisi.pedram.sunshine.fragments;
+package si.vei.pedram.sunshine.fragments;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -32,8 +32,8 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-import ir.veisi.pedram.sunshine.R;
-import ir.veisi.pedram.sunshine.activities.DetailActivity;
+import si.vei.pedram.sunshine.R;
+import si.vei.pedram.sunshine.activities.DetailActivity;
 
 
 /**
@@ -124,7 +124,7 @@ public class ForecastFragment extends Fragment {
          * <p/>
          * <p>This method won't be invoked if the task was cancelled.</p>
          *
-         * @param strings The result of the operation computed by {@link #doInBackground}.
+         * @param result The result of the operation computed by {@link #doInBackground}.
          * @see #onPreExecute
          * @see #doInBackground
          * @see #onCancelled(Object)

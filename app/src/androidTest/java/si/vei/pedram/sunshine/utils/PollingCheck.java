@@ -15,7 +15,7 @@
  *
  * Note: This file copied from the Android CTS Tests
  */
-package ir.veisi.pedram.sunshine.utils;
+package si.vei.pedram.sunshine.utils;
 
 import junit.framework.Assert;
 
