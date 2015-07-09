@@ -16,7 +16,10 @@
 
 package si.vei.pedram.sunshine.data;
 
+import android.content.ComponentName;
 import android.content.ContentValues;
+import android.content.pm.PackageManager;
+import android.content.pm.ProviderInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.test.AndroidTestCase;
@@ -38,10 +41,10 @@ public class TestProvider extends AndroidTestCase {
 
     static ContentValues[] createBulkInsertWeatherValues(long locationRowId) {
         long currentTestDate = TestUtilities.TEST_DATE;
-        long millisecondsInADay = 1000*60*60*24;
+        long millisecondsInADay = 1000 * 60 * 60 * 24;
         ContentValues[] returnContentValues = new ContentValues[BULK_INSERT_RECORDS_TO_INSERT];
 
-        for ( int i = 0; i < BULK_INSERT_RECORDS_TO_INSERT; i++, currentTestDate+= millisecondsInADay ) {
+        for (int i = 0; i < BULK_INSERT_RECORDS_TO_INSERT; i++, currentTestDate += millisecondsInADay) {
             ContentValues weatherValues = new ContentValues();
             weatherValues.put(WeatherContract.WeatherEntry.COLUMN_LOC_KEY, locationRowId);
             weatherValues.put(WeatherContract.WeatherEntry.COLUMN_DATE, currentTestDate);
@@ -118,28 +121,28 @@ public class TestProvider extends AndroidTestCase {
         This test checks to make sure that the content provider is registered correctly.
         Students: Uncomment this test to make sure you've correctly registered the WeatherProvider.
      */
-//    public void testProviderRegistry() {
-//        PackageManager pm = mContext.getPackageManager();
-//
-//        // We define the component name based on the package name from the context and the
-//        // WeatherProvider class.
-//        ComponentName componentName = new ComponentName(mContext.getPackageName(),
-//                WeatherProvider.class.getName());
-//        try {
-//            // Fetch the provider info using the component name from the PackageManager
-//            // This throws an exception if the provider isn't registered.
-//            ProviderInfo providerInfo = pm.getProviderInfo(componentName, 0);
-//
-//            // Make sure that the registered authority matches the authority from the Contract.
-//            assertEquals("Error: WeatherProvider registered with authority: " + providerInfo.authority +
-//                    " instead of authority: " + WeatherContract.CONTENT_AUTHORITY,
-//                    providerInfo.authority, WeatherContract.CONTENT_AUTHORITY);
-//        } catch (PackageManager.NameNotFoundException e) {
-//            // I guess the provider isn't registered correctly.
-//            assertTrue("Error: WeatherProvider not registered at " + mContext.getPackageName(),
-//                    false);
-//        }
-//    }
+    public void testProviderRegistry() {
+        PackageManager pm = mContext.getPackageManager();
+
+        // We define the component name based on the package name from the context and the
+        // WeatherProvider class.
+        ComponentName componentName = new ComponentName(mContext.getPackageName(),
+                WeatherProvider.class.getName());
+        try {
+            // Fetch the provider info using the component name from the PackageManager
+            // This throws an exception if the provider isn't registered.
+            ProviderInfo providerInfo = pm.getProviderInfo(componentName, 0);
+
+            // Make sure that the registered authority matches the authority from the Contract.
+            assertEquals("Error: WeatherProvider registered with authority: " + providerInfo.authority +
+                            " instead of authority: " + WeatherContract.CONTENT_AUTHORITY,
+                    providerInfo.authority, WeatherContract.CONTENT_AUTHORITY);
+        } catch (PackageManager.NameNotFoundException e) {
+            // I guess the provider isn't registered correctly.
+            assertTrue("Error: WeatherProvider not registered at " + mContext.getPackageName(),
+                    false);
+        }
+    }
 
     /*
             This test doesn't touch the database.  It verifies that the ContentProvider returns
