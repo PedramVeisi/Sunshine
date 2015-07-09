@@ -31,4 +31,9 @@
         </activity>
     </application>
 
+    <provider
+        android:name=".data.WeatherProvider"
+        android:authorities="si.vei.pedram.sunshine"
+        />
+
 </manifest>
