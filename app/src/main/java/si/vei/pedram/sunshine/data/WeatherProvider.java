@@ -257,9 +257,11 @@ public class WeatherProvider extends ContentProvider {
         // Use the uriMatcher to match the WEATHER and LOCATION URI's we are going to
         // handle.  If it doesn't match these, throw an UnsupportedOperationException.
 
-        final int match = sUriMatcher.match(uri);
         int rowsDeleted;
-        switch (match){
+
+        final int match = sUriMatcher.match(uri);
+
+        switch (match) {
             case WEATHER:
                 rowsDeleted = database.delete(WeatherContract.WeatherEntry.TABLE_NAME, selection, selectionArgs);
                 break;
@@ -275,7 +277,7 @@ public class WeatherProvider extends ContentProvider {
         // is null.
         // Oh, and you should notify the listeners here.
 
-        if (rowsDeleted != 0 || selection == null){
+        if (rowsDeleted != 0 || selection == null) {
             getContext().getContentResolver().notifyChange(uri, null);
         }
 
@@ -296,7 +298,26 @@ public class WeatherProvider extends ContentProvider {
             Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         // Student: This is a lot like the delete function.  We return the number of rows impacted
         // by the update.
-        return 0;
+
+        SQLiteDatabase database = mOpenHelper.getWritableDatabase();
+
+        int rowsUpdated;
+
+        final int match = sUriMatcher.match(uri);
+
+        switch (match) {
+            case WEATHER:
+                rowsUpdated = database.update(WeatherContract.WeatherEntry.TABLE_NAME, values, selection, selectionArgs);
+                break;
+            case LOCATION:
+                rowsUpdated = database.update(WeatherContract.LocationEntry.TABLE_NAME, values, selection, selectionArgs);
+                break;
+            default:
+                throw new UnsupportedOperationException("Unknown uri: " + uri);
+        }
+
+        getContext().getContentResolver().notifyChange(uri, null);
+        return rowsUpdated;
     }
 
     @Override
