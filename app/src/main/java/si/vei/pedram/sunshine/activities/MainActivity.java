@@ -1,16 +1,15 @@
 package si.vei.pedram.sunshine.activities;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import si.vei.pedram.sunshine.R;
+import si.vei.pedram.sunshine.Utility;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -52,8 +51,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void openPreferredLocationInMap() {
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String location = sharedPrefs.getString(getResources().getString(R.string.pref_location_key), getResources().getString(R.string.pref_location_default));
+        String location = Utility.getPreferredLocation(this);
 
         // Using the URI scheme for showing a location found on a map.  This super-handy
         // intent can is detailed in the "Common Intents" page of Android's developer site:
