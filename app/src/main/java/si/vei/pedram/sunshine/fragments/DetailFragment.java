@@ -37,7 +37,10 @@ public class DetailFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
 
         Intent intent = getActivity().getIntent();
-        mDayForecast = intent.getStringExtra(Intent.EXTRA_TEXT);
+
+        if (intent != null) {
+            mDayForecast = intent.getDataString();
+        }
 
         TextView forecastTextView = (TextView) rootView.findViewById(R.id.detail_forecast_textview);
         forecastTextView.setText(mDayForecast);
