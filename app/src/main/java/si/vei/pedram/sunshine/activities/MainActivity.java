@@ -41,7 +41,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment, new ForecastFragment(), FORECASTFRAGMENT_TAG)
+                    .add(R.id.main_fragment, new ForecastFragment(), FORECASTFRAGMENT_TAG)
                     .commit();
         }
     }
