@@ -88,7 +88,7 @@ public class MainActivity extends ActionBarActivity {
 
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
-        } else {
+        }  else {
             Log.d(LOG_TAG, "Couldn't call " + location + ", no receiving apps installed!");
         }
     }
