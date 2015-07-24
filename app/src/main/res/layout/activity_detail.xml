@@ -3,5 +3,5 @@
     android:id="@+id/weather_detail_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="si.vei.pedram.sunshine.fragments.DetailFragment"
+    tools:context="si.vei.pedram.sunshine.activities.DetailActivity"
     tools:ignore="MergeRootFrame" />
