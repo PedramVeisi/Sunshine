@@ -101,7 +101,7 @@ public class MainActivity extends ActionBarActivity {
 
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
-        }  else {
+        } else {
             Log.d(LOG_TAG, "Couldn't call " + location + ", no receiving apps installed!");
         }
     }
@@ -109,7 +109,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        String location = Utility.getPreferredLocation(this);
+        String location = Utility.getPreferredLocation( this );
         // update the location in our second pane using the fragment manager
         if (location != null && !location.equals(mLocation)) {
             ForecastFragment ff = (ForecastFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_forecast);
