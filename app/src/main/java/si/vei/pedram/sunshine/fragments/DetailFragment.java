@@ -131,7 +131,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
         super.onActivityCreated(savedInstanceState);
     }
 
-    void onLocationChanged( String newLocation ) {
+    public void onLocationChanged( String newLocation ) {
         // replace the uri, since the location has changed
         Uri uri = mUri;
         if (null != uri) {
