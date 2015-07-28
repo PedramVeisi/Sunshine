@@ -33,7 +33,8 @@
             android:name=".data.WeatherProvider"
             android:authorities="si.vei.pedram.sunshine" />
 
-        <service android:name=".service.SunshineService"/>
+        <service android:name=".service.SunshineService" />
+        <receiver android:name=".service.SunshineService$AlarmReceiver" android:enabled="true"/>
     </application>
 
 </manifest>
