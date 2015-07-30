@@ -27,6 +27,7 @@ import si.vei.pedram.sunshine.R;
 import si.vei.pedram.sunshine.Utility;
 import si.vei.pedram.sunshine.fragments.DetailFragment;
 import si.vei.pedram.sunshine.fragments.ForecastFragment;
+import si.vei.pedram.sunshine.sync.SunshineSyncAdapter;
 
 public class MainActivity extends ActionBarActivity implements ForecastFragment.Callback {
 
@@ -62,6 +63,7 @@ public class MainActivity extends ActionBarActivity implements ForecastFragment.
         ForecastFragment forecastFragment =  ((ForecastFragment)getSupportFragmentManager()
                 .findFragmentById(R.id.fragment_forecast));
         forecastFragment.setUseTodayLayout(!mTwoPane);
+        SunshineSyncAdapter.initializeSyncAdapter(this);
     }
 
     @Override
