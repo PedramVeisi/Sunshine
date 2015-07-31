@@ -474,7 +474,7 @@ public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
                 cursor.close();
             }
         }
-    }
+}
 
     /**
      * Helper method to handle insertion of a new location in the weather database.
