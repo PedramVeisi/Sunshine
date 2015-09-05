@@ -88,12 +88,6 @@ public class ForecastAdapter extends CursorAdapter {
         // because the information is repeated in the description view and the icon
         // is not individually selectable
 
-        // For accessibility, add a content description to the icon field
-        viewHolder.iconView.setContentDescription(description);
-
-        // Read user preference for metric or imperial temperature units
-        boolean isMetric = Utility.isMetric(context);
-
         // Read high temperature from cursor
         String high = Utility.formatTemperature(
                 context, cursor.getDouble(ForecastFragment.COL_WEATHER_MAX_TEMP));

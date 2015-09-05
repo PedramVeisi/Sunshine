@@ -186,10 +186,6 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
             // has text describing it in the same UI component.
             mIconView.setContentDescription(getString(R.string.a11y_forecast_icon, description));
 
-
-            // For accessibility, add a content description to the icon field
-            mIconView.setContentDescription(description);
-
             // Read high temperature from cursor and update view
             boolean isMetric = Utility.isMetric(getActivity());
 
