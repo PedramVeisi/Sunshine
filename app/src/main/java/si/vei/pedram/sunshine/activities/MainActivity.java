@@ -25,6 +25,7 @@ import android.view.MenuItem;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import si.vei.pedram.sunshine.R;
 import si.vei.pedram.sunshine.Utility;
@@ -34,11 +35,20 @@ import si.vei.pedram.sunshine.sync.SunshineSyncAdapter;
 
 public class MainActivity extends ActionBarActivity implements ForecastFragment.Callback {
 
+    public static final String PROPERTY_REG_ID = "registration_id";
     private static final String DETAILFRAGMENT_TAG = "DFTAG";
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+    private static final String PROPERTY_APP_VERSION = "appVersion";
     private final String LOG_TAG = MainActivity.class.getSimpleName();
+    /**
+     * Substitute you own sender ID here. This is the project number you got
+     * from the API Console.
+     */
+    String SENDER_ID = "Your-Sender-ID";
+
     private boolean mTwoPane;
     private String mLocation;
+    private GoogleCloudMessaging mGcm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
