@@ -49,7 +49,7 @@ public class MainActivity extends ActionBarActivity implements ForecastFragment.
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     private static final String PROPERTY_APP_VERSION = "appVersion";
     private final String LOG_TAG = MainActivity.class.getSimpleName();
-    String SENDER_ID = SensitiveInfo.PRJECT_NUMBER;
+    String PROJECT_NUMBER = SensitiveInfo.PRJECT_NUMBER;
 
     private boolean mTwoPane;
     private String mLocation;
@@ -105,7 +105,7 @@ public class MainActivity extends ActionBarActivity implements ForecastFragment.
             mGcm = GoogleCloudMessaging.getInstance(this);
             String regId = getRegistrationId(this);
 
-            if (SENDER_ID.equals("Your-Sender-ID")) {
+            if (PROJECT_NUMBER.equals("Your-Sender-ID")) {
                 new AlertDialog.Builder(this)
                         .setTitle("Needs Sender ID")
                         .setMessage("GCM will not function in Sunshine until you replace your Sender ID with a Sender ID from the Google Developers Console.")
@@ -263,7 +263,7 @@ public class MainActivity extends ActionBarActivity implements ForecastFragment.
                     if (mGcm == null) {
                         mGcm = GoogleCloudMessaging.getInstance(context);
                     }
-                    String regId = mGcm.register(SENDER_ID);
+                    String regId = mGcm.register(PROJECT_NUMBER);
                     msg = "Device registered, registration ID=" + regId;
 
                     // You should send the registration ID to your server over HTTP,
